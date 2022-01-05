@@ -1,84 +1,38 @@
-// MUST HAVE:     1. WELCOME MESSAGE,
-//                2. BEST OUT OF 5 ROUNDS,
-//                3. ENTER PLAYER NAME AT START,
-//                4. SWITCH BETWEEN CPU BEATING PLAYER AND CPU GENERATING RANDOM RESPOSONSES,
-//                5. ANNOUNCE WINNER AFTER GAME,
-//                6. PLAY AGAIN QUESTION AFTER EACH GAME OF 5 ROUNDS AND LOOP BACK,
-//                7. DISPLAY SCORES,
-               
+const weapons = ['rock','paper', 'sciccors']
 
-const readline = require('readline-sync');
+const cpu = 'cpu'
+const player = 'player'
 
-console.log('Rock Paper Scissors - Best out of 5!');
-console.log('====================================');
 
-console.log('Enter your name:');
-const playerName = readline.prompt();
+let randomWeapon = weapons[Math.floor(Math.random()*weapons.length)]
+const cpuWeapon = randomWeapon
 
-console.log('Choose your weapon; \"rock\", \"paper\" or \"scissors\":');
-let weapon = readline.prompt();
+const playerWeapon = 'sciccors'
 
-let cpuWeapon = 0;
+// GAME:
 function game() {
-    if (weapon == "rock") {
-            cpuWeapon = "paper";
-    } else if (weapon == "paper") {
-        cpuWeapon = "scissors";
-    } else if (weapon == "scissors") {
-        cpuWeapon = "rock";
-    } else {
-        return 'Enter either \"rock\", \"paper\" or \"scissors\":';
-    }
-};
-
-function result() {
-        if (weapon == "rock" && cpuWeapon == "paper") {
-            console.log('Cpu Wins!');
-        } else if (weapon == "paper" && cpuWeapon == "rock") {
-            console.log(playerName + ' Wins!');
-        } else if (weapon == cpuWeapon) {
-            console.log('Draw!!');    
-        } else if (weapon == "scissors" && cpuWeapon == "rock") {
-            console.log('Cpu Wins!');
-        } else if (weapon == cpuWeapon) {
-            console.log('Draw!!');    
-        } else if (weapon == "rock" && cpuWeapon == "scissors") {
-            console.log(playerName + ' Wins!');
-        } else if (weapon == cpuWeapon) {
-            console.log('Draw!!');    
-        } else if (weapon == "scissors" && cpuWeapon == "paper") {
-            console.log(playerName + ' Wins!');
-        } else if (weapon == cpuWeapon) {
-            console.log('Draw!!');
-        } else if (weapon == "paper" && cpuWeapon == "scissors") {
-            console.log('Cpu Wins!');
-        } else if (weapon == cpuWeapon) {
-            console.log('Draw!!');
-        }
-    };
-
-
-
-
-
-
-// game();
-// console.log('Cpu plays ' + cpuWeapon);
-// result();
-// console.log('Choose your weapon; \"rock\", \"paper\" or \"scissors\":');
-
-
-
-
-// FOR LOOP //
-for (i = 1; i < 5; i++) {
-    game(), i;
-    console.log('Cpu plays ' + cpuWeapon);
-    result();
-    console.log('Choose your weapon; \"rock\", \"paper\" or \"scissors\":');
-    let weapon = readline.prompt();
+   if (cpuWeapon === playerWeapon) {
+    console.log('DRAW!')
+} else if (cpuWeapon === 'rock' && playerWeapon === 'scissors') {
+    console.log('Computer Wins!')
+} else if (cpuWeapon === 'sciccors' && playerWeapon === 'rock') {
+    console.log('Player Wins!')    
+} else if (cpuWeapon === 'paper' && playerWeapon === 'rock') {
+    console.log('Computer Wins!')
+} else if (cpuWeapon === 'rock' && playerWeapon === 'paper') {
+    console.log('Player Wins!')  
+} else if (cpuWeapon === 'scissors' && playerWeapon === 'paper') {
+    console.log('Computer Wins!')
+} else if (cpuWeapon === 'paper' && playerWeapon === 'sciccors') {
+    console.log('Player Wins!')  
+} else if (cpuWeapon === 'sciccors' && playerWeapon === 'paper') {
+    console.log('Computer Wins!')  
+} else if (cpuWeapon === 'rock' && playerWeapon === 'sciccors') {
+    console.log('Computer Wins!')  
+} else {
+    console.log('what?')
 }
-
-
-
-
+}
+console.log("Player plays: " + playerWeapon)
+console.log("Computer plays: " + cpuWeapon)
+game()
